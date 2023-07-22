@@ -20,7 +20,7 @@ const getResponse = (message: string) => {
 			return 'Ken has a father, a mother, and a cat.'
 		}
 
-		if (/^ken|ken mueller$/i.test(name)) {
+		if (/^(ken|ken mueller)$/i.test(name)) {
 			return "Ken's full name is Ken Mueller."
 		}
 
@@ -48,7 +48,7 @@ const getResponse = (message: string) => {
 	if (howOldIsMatch) {
 		const name = howOldIsMatch[1]
 
-		if (/^ken|ken mueller$/i.test(name)) {
+		if (/^(ken|ken mueller)$/i.test(name)) {
 			return 'Ken Mueller is 17 years old.'
 		}
 
@@ -76,7 +76,7 @@ const getResponse = (message: string) => {
 	if (howIsHealthMatch) {
 		const name = howIsHealthMatch[1]
 
-		if (/^ken|ken mueller$/i.test(name)) {
+		if (/^(ken|ken mueller)$/i.test(name)) {
 			return "Ken's health is good."
 		}
 

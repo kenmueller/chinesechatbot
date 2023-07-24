@@ -35,12 +35,31 @@
 
 <main>
 	<h1>Chinese Chatbot</h1>
-	<div class="messages" bind:this={messagesElement}>
-		{#each messages as message}
-			<div class="message {message.type}">
-				<p>{message.text}</p>
+	<div class="main" bind:this={messagesElement}>
+		{#if messages.length > 0}
+			<div class="messages">
+				{#each messages as message}
+					<div class="message {message.type}">
+						<p>{message.text}</p>
+					</div>
+				{/each}
 			</div>
-		{/each}
+		{:else}
+			<div class="suggestions-container">
+				<h3>Some possible messages...</h3>
+				<ul class="suggestions-list">
+					<li>Hello</li>
+					<li>Goodbye</li>
+					<li>Who is in Ken's family?</li>
+					<li>Who is ...?</li>
+					<li>How old is ...?</li>
+					<li>How is ...'s health?</li>
+					<li>What is the main symptom of ...?</li>
+					<li>What are the symptoms of ...?</li>
+					<li>What some ... food recommendations?</li>
+				</ul>
+			</div>
+		{/if}
 	</div>
 	<form on:submit|preventDefault={onSubmit}>
 		<input bind:this={inputElement} placeholder="Message" bind:value={newMessageText} />
@@ -59,12 +78,31 @@
 		padding: 1rem;
 	}
 
-	.messages {
+	.main {
 		overflow-y: auto;
+	}
+
+	.messages {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
 	}
 
 	.message {
 		padding: 1rem;
+	}
+
+	.suggestions-container {
+		display: flex;
+		align-items: stretch;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding: 0.5rem 1rem;
+		opacity: 0.5;
+	}
+
+	.suggestions-list {
+		padding-left: 1.5rem;
 	}
 
 	.bot {

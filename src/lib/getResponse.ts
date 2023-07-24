@@ -1,11 +1,11 @@
 const getResponse = (message: string) => {
-	const hiMatch = message.match(/^(hi|hello|hey|howdy)$/i)
+	const hiMatch = message.match(/^(hi|hello|hey|howdy)!?$/i)
 
 	if (hiMatch) {
 		return 'Hello! I am a chatbot made by Ken.'
 	}
 
-	const byeMatch = message.match(/^(bye|goodbye)$/i)
+	const byeMatch = message.match(/^(bye|goodbye)!?$/i)
 
 	if (byeMatch) {
 		return 'Goodbye!'

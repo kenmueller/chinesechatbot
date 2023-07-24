@@ -99,6 +99,46 @@ const getResponse = (message: string) => {
 		return `Sorry, I do not know how ${name}'s health is.`
 	}
 
+	const mainSymptomMatch = message.match(/what is the main symptom of (.+?)\??$/i)
+
+	if (mainSymptomMatch) {
+		const disease = mainSymptomMatch[1]
+
+		if (/^(covid|covid 19|covid-19)$/i.test(disease)) {
+			return 'The main symptom of COVID-19 is difficulty breathing.'
+		}
+
+		return `Sorry, I do not know what the main symptom of ${disease} is.`
+	}
+
+	const symptomsMatch = message.match(/what are the symptoms of (.+?)\??$/i)
+
+	if (symptomsMatch) {
+		const disease = symptomsMatch[1]
+
+		if (/^(covid|covid 19|covid-19)$/i.test(disease)) {
+			return 'The symptoms of COVID-19 are Fever or chills, Cough, Shortness of breath or difficulty breathing, Fatigue, Muscle or body aches, Headache, New loss of taste or smell, Sore throat, Congestion or runny nose, Nausea or vomiting, Diarrhea.'
+		}
+
+		return `Sorry, I do not know what the symptoms of ${disease} are.`
+	}
+
+	const foodRecommendationsMatch = message.match(/what are some (.+?) food recommendations\??$/i)
+
+	if (foodRecommendationsMatch) {
+		const culture = foodRecommendationsMatch[1]
+
+		if (/^chinese$/i.test(culture)) {
+			return 'My favorite Chinese foods are orange chicken and dumplings.'
+		}
+
+		if (/^american$/i.test(culture)) {
+			return 'My favorite American foods are hamburgers and fries.'
+		}
+
+		return `Sorry, I do not have any ${culture} food recommendations.`
+	}
+
 	return 'Sorry, I do not understand.'
 }
 

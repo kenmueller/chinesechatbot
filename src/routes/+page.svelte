@@ -56,6 +56,8 @@
 					<li>How is ...'s health?</li>
 					<li>What is the main symptom of ...?</li>
 					<li>What are the symptoms of ...?</li>
+					<li>My symptom is ...</li>
+					<li>My symptom is ..., what disease do I have?</li>
 					<li>What some ... food recommendations?</li>
 				</ul>
 			</div>

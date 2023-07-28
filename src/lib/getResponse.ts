@@ -17,7 +17,7 @@ const getResponse = (message: string) => {
 		const name = whoIsMatch[1]
 
 		if (/^in ken's family$/i.test(name)) {
-			return 'Ken has a father, a mother, and a cat.'
+			return 'Ken has a father, a mother, a sister, and a cat.'
 		}
 
 		if (/^(ken|ken mueller)$/i.test(name)) {
@@ -38,6 +38,22 @@ const getResponse = (message: string) => {
 
 		if (/^ken's cat$/i.test(name)) {
 			return "Ken's cat is named Haskell Mueller."
+		}
+
+		if (/^(scott|scott mueller)$/i.test(name)) {
+			return "Scott Mueller is Ken's father."
+		}
+
+		if (/^(antoaneta|antoaneta mueller)$/i.test(name)) {
+			return "Antoaneta Mueller is Ken's mother."
+		}
+
+		if (/^(margo|margo mueller)$/i.test(name)) {
+			return "Margo Mueller is Ken's sister."
+		}
+
+		if (/^(haskell|haskell mueller)$/i.test(name)) {
+			return "Haskell Mueller is Ken's cat."
 		}
 
 		return `Sorry, I do not know who ${name} is.`
@@ -108,6 +124,14 @@ const getResponse = (message: string) => {
 			return 'The main symptom of COVID-19 is difficulty breathing.'
 		}
 
+		if (/^(cold|a cold)$/i.test(disease)) {
+			return 'The main symptom of a cold is a runny nose.'
+		}
+
+		if (/^(fever|a fever)$/i.test(disease)) {
+			return 'The main symptom of a fever is chills.'
+		}
+
 		return `Sorry, I do not know what the main symptom of ${disease} is.`
 	}
 
@@ -120,7 +144,47 @@ const getResponse = (message: string) => {
 			return 'The symptoms of COVID-19 are Fever or chills, Cough, Shortness of breath or difficulty breathing, Fatigue, Muscle or body aches, Headache, New loss of taste or smell, Sore throat, Congestion or runny nose, Nausea or vomiting, Diarrhea.'
 		}
 
+		if (/^(cold|a cold)$/i.test(disease)) {
+			return 'The symptoms of a cold are Sneezing, Stuffy nose, Runny nose, Sore throat, Coughing, Mucus dripping down your throat (post-nasal drip), Watery eyes.'
+		}
+
+		if (/^(fever|a fever)$/i.test(disease)) {
+			return 'The symptoms of a fever are Sweating, Chills and shivering, Headache, Muscle aches, Loss of appetite, Irritability, Dehydration, General weakness.'
+		}
+
 		return `Sorry, I do not know what the symptoms of ${disease} are.`
+	}
+
+	const mySymptomMatch = message.match(/my symptom is (.+?)(?:, what disease do i have)?\??$/i)
+
+	if (mySymptomMatch) {
+		const symptom = mySymptomMatch[1]
+
+		if (
+			/^(sneezing|suffy nose|runny nose|sore throat|coughing|post-nasal drip|watery eyes)$/i.test(
+				symptom
+			)
+		) {
+			return 'You probably have a cold.'
+		}
+
+		if (
+			/^(sweating|chills|shivering|headache|muscle aches|loss of appetite|irritability|dehydration|general weakness|weakness)$/i.test(
+				symptom
+			)
+		) {
+			return 'You probably have a fever.'
+		}
+
+		if (
+			/^(fever|chills|shortness of breath|difficulty breathing|fatigue|muscle aches|body aches|headache|loss of taste|loss of smell|sore throat|congestion|runny nose|nausea or vomiting|diarrhea)$/i.test(
+				symptom
+			)
+		) {
+			return 'You probably have COVID-19.'
+		}
+
+		return 'Sorry, I do not know what disease you have.'
 	}
 
 	const foodRecommendationsMatch = message.match(/what are some (.+?) food recommendations\??$/i)

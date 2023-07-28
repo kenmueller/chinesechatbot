@@ -1,31 +1,45 @@
 const getResponse = (message: string) => {
-	const hiMatch = message.match(/^(hi|hello|hey|howdy)!?$/i)
+	// (hi|hello|hey|howdy)!?
+	// Nǐ hǎo
+	const hiMatch = message.match(/^你好$/i)
 
 	if (hiMatch) {
-		return 'Hello! I am a chatbot made by Ken.'
+		// Hello! I am a chatbot made by Ken.
+		// Nǐ hǎo! Wǒ shì Ken zhìzuò de liáotiān jīqìrén.
+		return '你好！我是 Ken 制作的聊天机器人。'
 	}
 
-	const byeMatch = message.match(/^(bye|goodbye)!?$/i)
+	// (bye|goodbye)!?
+	// Zàijiàn
+	const byeMatch = message.match(/^再见$/i)
 
 	if (byeMatch) {
-		return 'Goodbye!'
+		// Goodbye!
+		// Zàijiàn
+		return '再见'
 	}
 
-	const whoIsMatch = message.match(/who is (.+?)\??$/i)
+	// who is (.+?)\??
+	// (.+?) shì shéi ma
+	const whoIsMatch = message.match(/(.+?)是谁吗$/i)
 
 	if (whoIsMatch) {
 		const name = whoIsMatch[1]
 
-		if (/^in ken's family$/i.test(name)) {
-			return 'Ken has a father, a mother, a sister, and a cat.'
-		}
+		// if (/^in ken's family$/i.test(name)) {
+		// 	return 'Ken has a father, a mother, a sister, and a cat.'
+		// }
 
 		if (/^(ken|ken mueller)$/i.test(name)) {
 			return "Ken's full name is Ken Mueller."
 		}
 
-		if (/^ken's (father|dad)$/i.test(name)) {
-			return "Ken's father is named Scott Mueller."
+		// ken's (father|dad)
+		// Kěn de bàba
+		if (/^ken的爸爸$/i.test(name)) {
+			// Ken's father is named Scott Mueller.
+			// Ken de bàba jiào Scott Mueller.
+			return 'Ken的爸爸叫Scott Mueller'
 		}
 
 		if (/^ken's (mother|mom)$/i.test(name)) {

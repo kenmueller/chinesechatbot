@@ -50,7 +50,7 @@
 </svelte:head>
 
 <main>
-	<h1>Chinese Chatbot</h1>
+	<h1>Chinese Chatbot by Ken Mueller</h1>
 	<div class="main" bind:this={messagesElement}>
 		{#if messages.length > 0}
 			<div class="messages">

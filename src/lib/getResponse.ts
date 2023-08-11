@@ -6,7 +6,7 @@ const getResponse = (message: string) => {
 	if (hiMatch) {
 		// Hello! I am a chatbot made by Ken.
 		// Nǐ hǎo! Wǒ shì Ken zhìzuò de liáotiān jīqìrén.
-		return '你好！我是 Ken 制作的聊天机器人。'
+		return '你好！我是Ken制作的聊天机器人。'
 	}
 
 	// (bye|goodbye)!?
@@ -31,193 +31,179 @@ const getResponse = (message: string) => {
 		// }
 
 		if (/^(ken|ken mueller)$/i.test(name)) {
-			return "Ken's full name is Ken Mueller."
+			// Ken's full name is Ken Mueller.
+			// Ken jiào Ken Mueller.
+			return 'Ken叫Ken Mueller.'
 		}
 
 		// ken's (father|dad)
-		// Kěn de bàba
+		// Ken de bàba
 		if (/^ken的爸爸$/i.test(name)) {
 			// Ken's father is named Scott Mueller.
 			// Ken de bàba jiào Scott Mueller.
-			return 'Ken的爸爸叫Scott Mueller'
+			return 'Ken的爸爸叫Scott Mueller.'
 		}
 
-		if (/^ken's (mother|mom)$/i.test(name)) {
-			return "Ken's mother is named Antoaneta Mueller."
+		if (/^ken的妈妈$/i.test(name)) {
+			// Ken's mother is named Antoaneta Mueller.
+			// Ken de māmā jiào Antoaneta Mueller.
+			return 'Ken的妈妈叫Antoaneta Mueller.'
 		}
 
-		if (/^ken's sister$/i.test(name)) {
-			return "Ken's sister is named Margo Mueller."
+		// ken's sister
+		// Ken de meimei
+		if (/^ken的妹妹$/i.test(name)) {
+			return 'Ken的妹妹叫Margo Mueller.'
 		}
 
-		if (/^ken's cat$/i.test(name)) {
-			return "Ken's cat is named Haskell Mueller."
+		if (/^ken的猫$/i.test(name)) {
+			return 'Ken的猫叫Haskell Mueller.'
 		}
 
 		if (/^(scott|scott mueller)$/i.test(name)) {
-			return "Scott Mueller is Ken's father."
+			return 'Scott Mueller是Ken的爸爸.'
 		}
 
 		if (/^(antoaneta|antoaneta mueller)$/i.test(name)) {
-			return "Antoaneta Mueller is Ken's mother."
+			return 'Antoaneta Mueller是Ken的妈妈.'
 		}
 
 		if (/^(margo|margo mueller)$/i.test(name)) {
-			return "Margo Mueller is Ken's sister."
+			return 'Margo Mueller是Ken的妹妹.'
 		}
 
 		if (/^(haskell|haskell mueller)$/i.test(name)) {
-			return "Haskell Mueller is Ken's cat."
+			return 'Haskell Mueller是Ken的猫.'
 		}
 
-		return `Sorry, I do not know who ${name} is.`
+		return `抱歉，我不知道${name}是谁`
 	}
 
-	const howOldIsMatch = message.match(/how old is (.+?)\??$/i)
+	const howOldIsMatch = message.match(/(.+?)多大了\??$/i)
 
 	if (howOldIsMatch) {
 		const name = howOldIsMatch[1]
 
 		if (/^(ken|ken mueller)$/i.test(name)) {
-			return 'Ken Mueller is 17 years old.'
+			return 'Ken Mueller十七岁了'
 		}
 
-		if (/^(ken's (father|dad)|scott|scott mueller)$/i.test(name)) {
-			return 'Scott Mueller is 47 years old.'
+		if (/^(ken的爸爸|scott|scott mueller)$/i.test(name)) {
+			return 'Scott Mueller四十七岁了'
 		}
 
-		if (/^(ken's (mother|mom)|antoaneta|antoaneta mueller)$/i.test(name)) {
-			return 'Antoaneta Mueller is 47 years old.'
+		if (/^(ken的妈妈|antoaneta|antoaneta mueller)$/i.test(name)) {
+			return 'Antoaneta Mueller四十七岁了'
 		}
 
-		if (/^(ken's sister|margo|margo mueller)$/i.test(name)) {
-			return 'Margo Mueller is 15 years old.'
+		if (/^(ken的妹妹|margo|margo mueller)$/i.test(name)) {
+			return 'Margo Mueller十五岁了'
 		}
 
-		if (/^(ken's cat|haskell|haskell mueller)$/i.test(name)) {
-			return 'Haskell Mueller is 6 years old.'
+		if (/^(ken的猫|haskell|haskell mueller)$/i.test(name)) {
+			return 'Haskell Mueller六岁了'
 		}
 
-		return `Sorry, I do not know how old ${name} is.`
+		return `抱歉，我不知道${name}多大了`
 	}
 
-	const howIsHealthMatch = message.match(/how is (.+?)'s health\??$/i)
+	const howIsHealthMatch = message.match(/(.+?)的健康状况如何\??$/i)
 
 	if (howIsHealthMatch) {
 		const name = howIsHealthMatch[1]
 
 		if (/^(ken|ken mueller)$/i.test(name)) {
-			return "Ken's health is good."
+			return 'Ken的​​健康状况良好'
 		}
 
-		if (/^(ken's (father|dad)|scott|scott mueller)$/i.test(name)) {
-			return "Scott Mueller's health is good."
+		if (/^(ken的爸爸|scott|scott mueller)$/i.test(name)) {
+			return 'Scott Mueller的​​健康状况良好'
 		}
 
-		if (/^(ken's (mother|mom)|antoaneta|antoaneta mueller)$/i.test(name)) {
-			return "Antoaneta Mueller's health is good."
+		if (/^(ken的妈妈|antoaneta|antoaneta mueller)$/i.test(name)) {
+			return 'Antoaneta Mueller的​​健康状况良好'
 		}
 
-		if (/^(ken's sister|margo|margo mueller)$/i.test(name)) {
-			return "Margo Mueller's health is good."
+		if (/^(ken的妹妹|margo|margo mueller)$/i.test(name)) {
+			return 'Margo Mueller的​​健康状况良好'
 		}
 
-		if (/^(ken's cat|haskell|haskell mueller)$/i.test(name)) {
-			return "Haskell Mueller's health is good."
+		if (/^(ken的猫|haskell|haskell mueller)$/i.test(name)) {
+			return 'Haskell Mueller的​​健康状况良好'
 		}
 
-		return `Sorry, I do not know how ${name}'s health is.`
+		return `抱歉，我不知道${name}的健康状况如何`
 	}
 
-	const mainSymptomMatch = message.match(/what is the main symptom of (.+?)\??$/i)
-
-	if (mainSymptomMatch) {
-		const disease = mainSymptomMatch[1]
-
-		if (/^(covid|covid 19|covid-19)$/i.test(disease)) {
-			return 'The main symptom of COVID-19 is difficulty breathing.'
-		}
-
-		if (/^(cold|a cold)$/i.test(disease)) {
-			return 'The main symptom of a cold is a runny nose.'
-		}
-
-		if (/^(fever|a fever)$/i.test(disease)) {
-			return 'The main symptom of a fever is chills.'
-		}
-
-		return `Sorry, I do not know what the main symptom of ${disease} is.`
-	}
-
-	const symptomsMatch = message.match(/what are the symptoms of (.+?)\??$/i)
+	const symptomsMatch = message.match(/(.+?)有哪些症状\??$/i)
 
 	if (symptomsMatch) {
 		const disease = symptomsMatch[1]
 
 		if (/^(covid|covid 19|covid-19)$/i.test(disease)) {
-			return 'The symptoms of COVID-19 are Fever or chills, Cough, Shortness of breath or difficulty breathing, Fatigue, Muscle or body aches, Headache, New loss of taste or smell, Sore throat, Congestion or runny nose, Nausea or vomiting, Diarrhea.'
+			return 'COVID-19的症状有发烧或者发冷，咳嗽，气短或者 呼吸困难，疲劳，肌肉酸痛，头痛，味觉或 嗅觉失灵，喉咙痛，拥塞或流鼻涕，恶心或呕吐，拉肚子'
 		}
 
-		if (/^(cold|a cold)$/i.test(disease)) {
-			return 'The symptoms of a cold are Sneezing, Stuffy nose, Runny nose, Sore throat, Coughing, Mucus dripping down your throat (post-nasal drip), Watery eyes.'
+		if (/^感冒$/i.test(disease)) {
+			return '感冒的症状有打喷嚏、鼻塞、流鼻涕、喉咙痛、咳嗽、鼻后滴漏、流泪'
 		}
 
-		if (/^(fever|a fever)$/i.test(disease)) {
-			return 'The symptoms of a fever are Sweating, Chills and shivering, Headache, Muscle aches, Loss of appetite, Irritability, Dehydration, General weakness.'
+		if (/^水痘$/i.test(disease)) {
+			return '水痘的症状是发烧、食欲不振、头痛、疲倦'
 		}
 
-		return `Sorry, I do not know what the symptoms of ${disease} are.`
+		return `抱歉，我不知道${disease}的症状是什么`
 	}
 
-	const mySymptomMatch = message.match(/my symptom is (.+?)(?:, what disease do i have)?\??$/i)
+	const mySymptomsMatch = message.match(/我的症状是(.+?)$/i)
 
-	if (mySymptomMatch) {
-		const symptom = mySymptomMatch[1]
+	if (mySymptomsMatch) {
+		const symptoms = mySymptomsMatch[1].split('、')
 
-		if (
-			/^(sneezing|suffy nose|runny nose|sore throat|coughing|post-nasal drip|watery eyes)$/i.test(
-				symptom
-			)
-		) {
-			return 'You probably have a cold.'
+		const symptomsMatch = {
+			'covid-19':
+				'发烧或者发冷，咳嗽，气短或者 呼吸困难，疲劳，肌肉酸痛，头痛，味觉或 嗅觉失灵，喉咙痛，拥塞或流鼻涕，恶心或呕吐，拉肚子'.split(
+					'、'
+				),
+			感冒: '打喷嚏、鼻塞、流鼻涕、喉咙痛、咳嗽、粘液从喉咙滴下来（鼻后滴漏）、流泪'.split('、'),
+			水痘: '发烧、食欲不振、头痛、疲倦'.split('、')
 		}
 
-		if (
-			/^(sweating|chills|shivering|headache|muscle aches|loss of appetite|irritability|dehydration|general weakness|weakness)$/i.test(
-				symptom
+		let disease: string | null = null
+		let matchCount = 0
+
+		for (const [thisDisease, thisSymptoms] of Object.entries(symptomsMatch)) {
+			const thisMatchCount = symptoms.reduce(
+				(count, symptom) => count + (thisSymptoms.includes(symptom) ? 1 : 0),
+				0
 			)
-		) {
-			return 'You probably have a fever.'
+
+			if (thisMatchCount > matchCount) {
+				disease = thisDisease
+				matchCount = thisMatchCount
+			}
 		}
 
-		if (
-			/^(fever|chills|shortness of breath|difficulty breathing|fatigue|muscle aches|body aches|headache|loss of taste|loss of smell|sore throat|congestion|runny nose|nausea or vomiting|diarrhea)$/i.test(
-				symptom
-			)
-		) {
-			return 'You probably have COVID-19.'
-		}
-
-		return 'Sorry, I do not know what disease you have.'
+		return disease ? `您可能感染了${disease}` : '抱歉，我不知道你得的是什么病'
 	}
 
-	const foodRecommendationsMatch = message.match(/what are some (.+?) food recommendations\??$/i)
+	const foodRecommendationsMatch = message.match(/有哪些(.+?)推荐$/i)
 
 	if (foodRecommendationsMatch) {
 		const culture = foodRecommendationsMatch[1]
 
-		if (/^chinese$/i.test(culture)) {
-			return 'My favorite Chinese foods are orange chicken and dumplings.'
+		if (/^中餐$/i.test(culture)) {
+			return '我最喜欢的中国菜是橙子鸡和饺子'
 		}
 
-		if (/^american$/i.test(culture)) {
-			return 'My favorite American foods are hamburgers and fries.'
+		if (/^美国食物$/i.test(culture)) {
+			return '我最喜欢的美国食物是汉堡包和薯条'
 		}
 
-		return `Sorry, I do not have any ${culture} food recommendations.`
+		return `抱歉，我没有任何${culture}食物推荐`
 	}
 
-	return 'Sorry, I do not understand.'
+	return '对不起，我不明白'
 }
 
 export default getResponse

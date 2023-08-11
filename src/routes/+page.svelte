@@ -44,6 +44,11 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Chinese Chatbot by Ken Mueller</title>
+	<meta name="description" content="A chatbot that speaks Chinese written by Ken Mueller" />
+</svelte:head>
+
 <main>
 	<h1>Chinese Chatbot</h1>
 	<div class="main" bind:this={messagesElement}>

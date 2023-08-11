@@ -141,15 +141,15 @@ const getResponse = (message: string) => {
 		const disease = symptomsMatch[1]
 
 		if (/^(covid|covid 19|covid-19)$/i.test(disease)) {
-			return 'COVID-19的症状有发烧或者发冷，咳嗽，气短或者 呼吸困难，疲劳，肌肉酸痛，头痛，味觉或 嗅觉失灵，喉咙痛，拥塞或流鼻涕，恶心或呕吐，拉肚子'
+			return 'COVID-19的症状有发烧或者发冷，咳嗽，气短或者呼吸困难，疲劳，肌肉酸痛，头痛，味觉或 嗅觉失灵，喉咙痛，拥塞或流鼻涕，恶心或呕吐，拉肚子'
 		}
 
 		if (/^感冒$/i.test(disease)) {
-			return '感冒的症状有打喷嚏、鼻塞、流鼻涕、喉咙痛、咳嗽、鼻后滴漏、流泪'
+			return '感冒的症状有打喷嚏，鼻塞，流鼻涕，喉咙痛，咳嗽，鼻后滴漏，流泪'
 		}
 
 		if (/^水痘$/i.test(disease)) {
-			return '水痘的症状是发烧、食欲不振、头痛、疲倦'
+			return '水痘的症状是发烧，食欲不振，头痛，疲倦'
 		}
 
 		return `抱歉，我不知道${disease}的症状是什么`
@@ -158,15 +158,17 @@ const getResponse = (message: string) => {
 	const mySymptomsMatch = message.match(/我的症状是(.+?)$/i)
 
 	if (mySymptomsMatch) {
-		const symptoms = mySymptomsMatch[1].split('、')
+		const symptoms = mySymptomsMatch[1].split('，')
+
+		console.log(symptoms)
 
 		const symptomsMatch = {
 			'covid-19':
-				'发烧或者发冷，咳嗽，气短或者 呼吸困难，疲劳，肌肉酸痛，头痛，味觉或 嗅觉失灵，喉咙痛，拥塞或流鼻涕，恶心或呕吐，拉肚子'.split(
-					'、'
+				'发烧或者发冷，咳嗽，气短或者呼吸困难，疲劳，肌肉酸痛，头痛，味觉或 嗅觉失灵，喉咙痛，拥塞或流鼻涕，恶心或呕吐，拉肚子'.split(
+					'，'
 				),
-			感冒: '打喷嚏、鼻塞、流鼻涕、喉咙痛、咳嗽、粘液从喉咙滴下来（鼻后滴漏）、流泪'.split('、'),
-			水痘: '发烧、食欲不振、头痛、疲倦'.split('、')
+			感冒: '打喷嚏，鼻塞，流鼻涕，喉咙痛，咳嗽，鼻后滴漏，流泪'.split('，'),
+			水痘: '发烧，食欲不振，头痛，疲倦'.split('，')
 		}
 
 		let disease: string | null = null

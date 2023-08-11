@@ -3,6 +3,17 @@
 
 	import getResponse from '$lib/getResponse'
 
+	const suggestions = [
+		'你好',
+		'再见',
+		'___是谁吗',
+		'___多大了',
+		'___的健康状况如何',
+		'___有哪些症状',
+		'我的症状是___',
+		'有哪些___推荐'
+	]
+
 	interface Message {
 		type: 'user' | 'bot'
 		text: string
@@ -48,17 +59,9 @@
 			<div class="suggestions-container">
 				<h3>Some possible messages...</h3>
 				<ul class="suggestions-list">
-					<li>Hello</li>
-					<li>Goodbye</li>
-					<li>Who is in Ken's family?</li>
-					<li>Who is ...?</li>
-					<li>How old is ...?</li>
-					<li>How is ...'s health?</li>
-					<li>What is the main symptom of ...?</li>
-					<li>What are the symptoms of ...?</li>
-					<li>My symptom is ...</li>
-					<li>My symptom is ..., what disease do I have?</li>
-					<li>What some ... food recommendations?</li>
+					{#each suggestions as suggestion}
+						<li>{suggestion}</li>
+					{/each}
 				</ul>
 			</div>
 		{/if}
